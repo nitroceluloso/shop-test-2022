@@ -1,0 +1,35 @@
+{
+  "name": "shop-test-2022",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/nitroceluloso/shop-test-2022.git",
+  "author": "Cristóbal <cristobalsepulveda1@hotmail.com>",
+  "license": "GPL-3.0",
+  "private": false,
+  "devDependencies": {
+    "@testing-library/react": "^13.3.0",
+    "@types/jest": "^28.1.1",
+    "@types/react": "^18.0.12",
+    "@types/react-dom": "^18.0.5",
+    "jest": "^28.1.1",
+    "jest-environment-jsdom": "^28.1.1",
+    "prettier": "^2.7.0",
+    "ts-jest": "^28.0.5",
+    "ts-loader": "^9.3.0",
+    "typescript": "^4.7.3",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.2"
+  },
+  "scripts": {
+    "start": "webpack",
+    "dev": "webpack serve",
+    "test": "jest",
+    "pret": "prettier --write './src/**/*.tsx'"
+  },
+  "dependencies": {
+    "html-webpack-plugin": "^5.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
