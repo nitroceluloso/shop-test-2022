@@ -13,7 +13,9 @@
       "@Utils/*": ["./src/utils/*"],
       "@Components/*": ["./src/components/*"]
     },
+    "typeRoots": ["./node_modules/@types", "./src/@types/**/*"],
     "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true, //jest with jsx dont work without this.
   },
   "include": ["./src"],
   "exclude": ["./node_modules", "./dist"]
