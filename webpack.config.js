@@ -17,6 +17,20 @@ module.exports = {
                 use: 'ts-loader',
                 exclude: /node_modules/,
             },
+            {
+                test: /\.css$/i,
+                use: [
+                    {
+                        loader: "style-loader",
+                        options: { injectType: "singletonStyleTag" }
+                    },
+                    "css-loader",
+                ],
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/resource',
+            },
         ]
     },
     resolve: {
