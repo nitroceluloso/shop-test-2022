@@ -1,8 +1,12 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
+import "./assets/css/variables.css";
+import "./assets/css/base.css";
 
-const App = () => {
-	return <div>Hello World</div>;
-};
+import { Wellcome } from "./layouts/wellcome/Wellcome";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+const App = () => <Wellcome onClick={() => {}} />;
+
+const domRoot = document.getElementById("root");
+const root = createRoot(domRoot);
+root.render(<App />);
