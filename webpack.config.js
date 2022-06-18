@@ -41,7 +41,7 @@ module.exports = {
         }
     },
     plugins: [
-        new HtmlWebpackPlugin({ template: './src//assets/index.html' })
+        new HtmlWebpackPlugin({ template: './src/assets/index.html' })
     ],
     devServer:{
         open: true,

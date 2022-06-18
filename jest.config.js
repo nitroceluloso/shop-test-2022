@@ -90,6 +90,7 @@ module.exports = {
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
     "@Components/(.*)": "<rootDir>/src/components/$1",
+	"@Svg/(.*)": "<rootDir>/src/assets/svg/$1",
     "^.+\\.svg$": "jest-svg-transformer", // for loading svg files into components.
   },
 

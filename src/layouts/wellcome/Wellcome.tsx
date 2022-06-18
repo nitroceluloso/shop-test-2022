@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "@Components/button";
+import Button from "@Components/atoms/button";
 import {
 	ImageSection,
 	MainSection,
@@ -7,7 +7,7 @@ import {
 	Paragraph,
 	ButtonSection,
 } from "./Wellcome.style";
-import WellComeImg from "../../assets/svg/wellcome.svg";
+import WellComeImg from "@Svg/wellcome.svg";
 
 type WellcomeProps = {
 	onClick: () => void;
