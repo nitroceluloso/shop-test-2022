@@ -6,11 +6,12 @@ export type ButtonType =
 	| "option"
 	| "secundary"
 	| "cancel"
-	| "danger";
+	| "danger"
+	| "transparent";
 
 export type ButtonProps = {
-	title: string;
 	look: ButtonType;
+	children?: string | JSX.Element,
 	onClick?: () => void;
 };
 
@@ -18,7 +19,7 @@ export const Button = (props: ButtonProps) => {
 	const StyledButton = getButtonType(props.look);
 	return (
 		<StyledButton type="button" onClick={props.onClick}>
-			{props.title}
+			{props.children}
 		</StyledButton>
 	);
 };
