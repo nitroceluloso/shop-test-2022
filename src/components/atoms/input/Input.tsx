@@ -1,18 +1,34 @@
-import React from 'react';
-import { InputStyle } from "./Input.style";
+import React, {useState} from 'react';
+import { getInputByLook } from "./Input.style";
+
+export type InputLook = 'default' | 'search';
 
 type InputProps = {
     value: string;
     placeholder: string;
-    onChange?: () => string;
+    look?: InputLook;
+    onChange?: (val: string) => void;
+    onFocus?: () => void;
+    onBlur?: () => void;
 }
 
 export const Input = (props: InputProps) => {
+    const [value, setValue] = useState('');
+
+    const onChangeHanlder = (ev: React.ChangeEvent<HTMLInputElement>) => {
+        const incomeValue = ev.target.value;
+        setValue(incomeValue);
+        props.onChange(incomeValue);
+    }
+
+    const Input = getInputByLook(props.look || 'default');
+
     return(
-        <InputStyle
+        <Input
             type="text"
-            value={props.value}
+            value={value}
             placeholder={props.placeholder}
-            onChange={props.onChange}
+            onChange={onChangeHanlder}
+            onFocus={props.onFocus}
         />);
 }
