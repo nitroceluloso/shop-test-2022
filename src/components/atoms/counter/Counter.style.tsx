@@ -27,9 +27,20 @@ export const CounterActions = styled.div`
 
 type ActionBoxProps = {
     orange?: boolean;
+    disabled?: boolean;
 }
 export const ActionBox = styled.div<ActionBoxProps>`
     padding: 0 0.62rem;
-    cursor: pointer;
-    color: ${props => props.orange ? 'rgb(var(--orange))' : 'black'}
+    color: ${props => props.orange ? 'rgb(var(--orange))' : 'black'};
+    color: ${props => props.disabled ? 'rgb(var(--gray))' : null};
 `;
+
+type ActionButtonProps = {
+    orange?: boolean;
+}
+export const ActionButton = styled.button<ActionButtonProps>`
+    background: transparent;
+    border: 0;
+    color: ${props => props.orange ? 'rgb(var(--orange))' : 'black'};
+    color: ${props => props.disabled ? 'rgb(var(--gray))' : null};
+`
