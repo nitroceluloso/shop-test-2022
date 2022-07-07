@@ -4,6 +4,10 @@ export const SearchBox = styled.div`
     padding: 1rem 1rem;
 `;
 
-export const CountersBox = styled.div`
-    
+type CounterBoxPropx = {
+    transparent?: boolean;
+}
+
+export const CountersBox = styled.div<CounterBoxPropx>`
+    opacity: ${props => props.transparent ? '0.2' : 1};
 `;
