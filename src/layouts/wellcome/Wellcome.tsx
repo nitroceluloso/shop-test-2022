@@ -7,7 +7,7 @@ import {
 	Paragraph,
 	ButtonSection,
 } from "./Wellcome.style";
-import WellComeImg from "@Svg/wellcome.svg";
+import WellComeImg from "@Assets/svg/wellcome.svg";
 
 type WellcomeProps = {
 	onClick: () => void;
@@ -28,10 +28,9 @@ export const Wellcome = (props: WellcomeProps) => {
 			</MainSection>
 			<ButtonSection>
 				<Button
-					title="Get started"
 					look="action"
 					onClick={props.onClick}
-				/>
+				> Get started </Button>
 			</ButtonSection>
 		</>
 	);
