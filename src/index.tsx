@@ -3,9 +3,9 @@ import { createRoot } from "react-dom/client";
 import "./assets/css/variables.css";
 import "./assets/css/base.css";
 
-import { Wellcome } from "./layouts/wellcome/Wellcome";
+import Counters from "./layouts/counters";
 
-const App = () => <Wellcome onClick={() => {}} />;
+const App = () => <Counters />;
 
 const domRoot = document.getElementById("root");
 const root = createRoot(domRoot);

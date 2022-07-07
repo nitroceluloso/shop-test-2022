@@ -4,9 +4,9 @@ import { Button } from "./Button";
 
 describe("Button", () => {
 	test("should render action button", () => {
-		const title = "Action button";
-		render(<Button title={title} look="action" />);
-		const button = screen.getByText(title);
+		const text = "Action button";
+		render(<Button  look="action">{text}</Button>);
+		const button = screen.getByText(text);
 		expect(true).toBe(true);
 	});
 });

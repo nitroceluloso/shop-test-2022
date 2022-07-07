@@ -1,4 +1,15 @@
+* {
+    box-sizing: border-box;
+    font-family: 'AvenirNextLtPro';
+    font-weight: 400;
+}
+
 body {
     padding: 0;
     margin: 0
+}
+
+@font-face{
+    font-family: 'AvenirNextLtPro';
+    src: url('../fonts/AvenirNextLTPro-Regular.otf')
 }

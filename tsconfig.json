@@ -11,7 +11,8 @@
     "sourceMap": true,
     "paths": {
       "@Utils/*": ["./src/utils/*"],
-      "@Components/*": ["./src/components/*"]
+      "@Components/*": ["./src/components/*"],
+      "@Assets/*": ["./src/assets/"]
     },
     "typeRoots": ["./node_modules/@types", "./src/@types/**/*"],
     "allowSyntheticDefaultImports": true,

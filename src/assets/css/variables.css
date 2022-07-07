@@ -1,8 +1,10 @@
 :root {
-    --orange: #FF9500;
-    --red: #FF3B30;
-    --black: #212121;
-    --white: #FFFFFF;
+    --orange: 255, 149, 0;
+    --red: 255, 59, 48;
+    --black: 33, 33, 33;
+    --white: 255, 255, 255;
+    --light-gray: 220, 220, 223;
+    --gray: 136, 139, 144;
 
     --standard-size: 16px;
     --tittle-size: 22px;

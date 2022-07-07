@@ -28,7 +28,7 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                test: /\.(png|svg|jpg|jpeg|gif|otf)$/i,
                 type: 'asset/resource',
             },
         ]
@@ -37,11 +37,12 @@ module.exports = {
         extensions: [ '.tsx', '.ts', '.js' ],
         alias: {
             '@Utils': path.resolve(__dirname, './src/utils/'),
-            '@Components': path.resolve(__dirname, './src/components/')
+            '@Components': path.resolve(__dirname, './src/components/'),
+			'@Assets': path.resolve(__dirname, './src/assets/')
         }
     },
     plugins: [
-        new HtmlWebpackPlugin({ template: './src//assets/index.html' })
+        new HtmlWebpackPlugin({ template: './src/assets/index.html' })
     ],
     devServer:{
         open: true,
