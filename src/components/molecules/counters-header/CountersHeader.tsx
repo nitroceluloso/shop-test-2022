@@ -1,5 +1,7 @@
+import Button from '@Components/atoms/button';
 import React from 'react';
 import { CounterHeaderBox, Paragraph, OrangeParagrapg } from './CountersHeader.style';
+import Refresh from "../../../assets/svg/refresh.svg";
 
 type CountersHeaderProps = {
     itemCount: number;
@@ -23,7 +25,9 @@ export const CountersHeader = (props: CountersHeaderProps) => {
                     <OrangeParagrapg> {props.selectedItems} selected </OrangeParagrapg>
                 </>
             }
-            <div></div>
+            <Button look='transparent'>
+                <img src={Refresh} alt="" />
+            </Button>
         </CounterHeaderBox>
     );
 }
