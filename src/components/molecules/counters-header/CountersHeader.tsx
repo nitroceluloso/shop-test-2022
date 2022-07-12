@@ -10,24 +10,22 @@ type CountersHeaderProps = {
     refresh: () => void;
 }
 
-export const CountersHeader = (props: CountersHeaderProps) => {
-    return(
-        <CounterHeaderBox>
-            {props.selectedItems == 0 &&
-                <>
-                    <Paragraph bold>{props.itemCount} items</Paragraph>
-                    <Paragraph>{props.itemAddition} times</Paragraph>
-                </>
-            }
-            {
-                props.selectedItems > 0 &&
-                <>
-                    <OrangeParagrapg> {props.selectedItems} selected </OrangeParagrapg>
-                </>
-            }
-            <Button look='transparent' onClick={props.refresh}>
-                <img src={Refresh} alt="" />
-            </Button>
-        </CounterHeaderBox>
-    );
-}
+export const CountersHeader = (props: CountersHeaderProps) => (
+    <CounterHeaderBox data-testid="counter-header-box">
+        {props.selectedItems == 0 &&
+            <>
+                <Paragraph bold>{props.itemCount} items</Paragraph>
+                <Paragraph>{props.itemAddition} times</Paragraph>
+            </>
+        }
+        {
+            props.selectedItems > 0 &&
+            <>
+                <OrangeParagrapg> {props.selectedItems} selected </OrangeParagrapg>
+            </>
+        }
+        <Button look='transparent' onClick={props.refresh}>
+            <img src={Refresh} alt="" data-testid="refresh-icon" />
+        </Button>
+    </CounterHeaderBox>
+)
