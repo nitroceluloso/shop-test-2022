@@ -25,6 +25,7 @@ export const Input = (props: InputProps) => {
 
     return(
         <Input
+            data-testid="input"
             type="text"
             value={value}
             placeholder={props.placeholder}

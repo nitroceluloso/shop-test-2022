@@ -7,6 +7,6 @@ describe("Button", () => {
 		const text = "Action button";
 		render(<Button  look="action">{text}</Button>);
 		const button = screen.getByText(text);
-		expect(true).toBe(true);
+		expect(button).toBeDefined();
 	});
 });

@@ -23,9 +23,9 @@ export const Counter = (props: CounterProps) => {
                 <p>{props.name}</p>
             </TittleBox>
             <CounterActions>
-                <ActionButton orange disabled={props.count === 0} onClick={decrementFn}>-</ActionButton>
+                <ActionButton data-testid="decrement" orange disabled={props.count === 0} onClick={decrementFn}>-</ActionButton>
                 <ActionBox>{props.count}</ActionBox>
-                <ActionButton orange onClick={incrementFn}>+</ActionButton>
+                <ActionButton data-testid="increment" orange onClick={incrementFn}>+</ActionButton>
             </CounterActions>
         </CounterBox>
     );
