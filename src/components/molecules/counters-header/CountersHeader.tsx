@@ -15,7 +15,7 @@ export const CountersHeader = (props: CountersHeaderProps) => {
         <CounterHeaderBox>
             {props.selectedItems == 0 &&
                 <>
-                    <Paragraph>{props.itemCount} items</Paragraph>
+                    <Paragraph bold>{props.itemCount} items</Paragraph>
                     <Paragraph>{props.itemAddition} times</Paragraph>
                 </>
             }

@@ -5,14 +5,14 @@ import CountersHeader from '@Components/molecules/counters-header';
 import ButtonBar from '@Components/molecules/button-bar';
 import CounterList from "@Components/molecules/counter-list";
 import { getUpdateCounterFn, useGetCounters } from '../../network/counters/useCounters';
-
+import Loading from "@Assets/svg/loading.svg";
 
 export const Counters = () => {
     const [filterText, setFilterText] = useState<string>('');
     const [itemAdition, setItemAdition] = useState(0);
     const [counterListSelected, setCounterListSelected] = useState<number[]>([]);
     const showButtons = counterListSelected.length ? true : false;
-    const { data, isFetching, refetch } = useGetCounters();
+    const { data, isFetching, isLoading, refetch } = useGetCounters();
     const [counterList, setCounterList] = useState([]);
     const { mutate } = getUpdateCounterFn();
 
@@ -47,20 +47,35 @@ export const Counters = () => {
             <SearchBox>
                 <SearchBar onChange={setFilterText}/>
             </SearchBox>
-            <CountersBox>
-                <CountersHeader
-                    itemAddition={itemAdition}
-                    itemCount={counterList.length}
-                    selectedItems={counterListSelected.length}
-                    refresh={refetch}
-                />
-                <CounterList
-                    counterList={counterList}
-                    selectedIds={counterListSelected}
-                    onSelect={updateSelectedCounter}
-                    decrement={mutate}
-                    increment={mutate}
-                />
+            <CountersBox loading={isLoading}>
+
+                {
+                    isLoading &&
+                    <div>
+                        <img src={Loading} alt="" />
+                    </div>
+                }
+
+                {
+                    !isLoading &&
+                    <CountersHeader
+                        itemAddition={itemAdition}
+                        itemCount={counterList.length}
+                        selectedItems={counterListSelected.length}
+                        refresh={refetch}
+                    />
+                }
+
+                {
+                    !isLoading &&
+                    <CounterList
+                        counterList={counterList}
+                        selectedIds={counterListSelected}
+                        onSelect={updateSelectedCounter}
+                        decrement={mutate}
+                        increment={mutate}
+                    />
+                }
             </CountersBox>
             <ButtonBar showOptions={showButtons} />
         </>
