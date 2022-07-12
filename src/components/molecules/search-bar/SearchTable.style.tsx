@@ -6,6 +6,6 @@ export const StyledWrapper = styled.div`
     justify-content: space-between;
 
     & > input:not(:only-child) {
-        width: 70%;
+        margin-right: 1rem;
     }
 `

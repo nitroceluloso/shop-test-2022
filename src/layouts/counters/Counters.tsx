@@ -4,36 +4,19 @@ import SearchBar from "@Components/molecules/search-bar";
 import CountersHeader from '@Components/molecules/counters-header';
 import ButtonBar from '@Components/molecules/button-bar';
 import CounterList from "@Components/molecules/counter-list";
+import { getUpdateCounterFn, useGetCounters } from '../../network/counters/useCounters';
 
-const counterListRaw = [
-    {
-        id: '1',
-        title: 'Cups of coffe',
-        times: 5,
-        selected: false,
-    },
-    {
-        id: '2',
-        title: 'Records played',
-        times: 10,
-        selected: false,
-    },
-    {
-        id: '3',
-        title: 'Apples eaten',
-        times: 0,
-        selected: false,
-    },
-]
 
 export const Counters = () => {
     const [filterText, setFilterText] = useState<string>('');
     const [itemAdition, setItemAdition] = useState(0);
-    const [counterListSelected, setCounterListSelected] = useState<Array<string>>([]);
-    const [counterList, setCounterList] = useState(counterListRaw);
+    const [counterListSelected, setCounterListSelected] = useState<number[]>([]);
     const showButtons = counterListSelected.length ? true : false;
+    const { data, isFetching, refetch } = useGetCounters();
+    const [counterList, setCounterList] = useState([]);
+    const { mutate } = getUpdateCounterFn();
 
-    const updateSelectedCounter = (id: string) => {
+    const updateSelectedCounter = (id: number) => {
         if(counterListSelected.includes(id)) {
             const updatedList = counterListSelected.filter(el => el !== id);
             setCounterListSelected(updatedList)
@@ -42,15 +25,22 @@ export const Counters = () => {
         }
     }
 
+    //filters list
     useEffect(() => {
-        const filteredCounterList = counterListRaw.filter(({title}) => title.toLowerCase().includes(filterText));
+        const filteredCounterList = counterList.filter(({name}) => name.toLowerCase().includes(filterText));
         setCounterList(filteredCounterList);
-    }, [filterText])
+    }, [filterText]);
 
+    //sets the addition of all counters
     useEffect(() => {
-        const itemAdition = counterList.reduce((acumulative, current) => acumulative + current.times, 0);
+        const itemAdition = counterList.reduce((acumulative, current) => acumulative + current.count, 0);
         setItemAdition(itemAdition)
-    }, [counterList])
+    }, [counterList]);
+
+    //set list on state after fetch
+    useEffect(() => {
+        if (!isFetching) setCounterList(data);;
+    }, [isFetching]);
 
     return(
         <>
@@ -62,12 +52,14 @@ export const Counters = () => {
                     itemAddition={itemAdition}
                     itemCount={counterList.length}
                     selectedItems={counterListSelected.length}
-                    refresh={() => {}}
+                    refresh={refetch}
                 />
                 <CounterList
                     counterList={counterList}
                     selectedIds={counterListSelected}
                     onSelect={updateSelectedCounter}
+                    decrement={mutate}
+                    increment={mutate}
                 />
             </CountersBox>
             <ButtonBar showOptions={showButtons} />

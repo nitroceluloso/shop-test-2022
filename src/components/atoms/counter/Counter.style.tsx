@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const TittleBox = styled.div`
-    width: 50%;
+    /* width: 50%; */
+    flex-grow: 1;
 `
 
 type CounterBoxProps = {
@@ -13,8 +14,10 @@ export const CounterBox = styled.div<CounterBoxProps>`
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     padding: 1rem;
     background-color: ${props => props.selected ? 'rgba(var(--orange), 0.1)' : 'rgb(var(--white))'};
+    cursor: default;
 
     & p{
         margin: 0;
@@ -23,6 +26,7 @@ export const CounterBox = styled.div<CounterBoxProps>`
 
 export const CounterActions = styled.div`
     display: flex;
+    flex-grow: 0;
 `;
 
 type ActionBoxProps = {

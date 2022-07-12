@@ -25,7 +25,7 @@ export const CountersHeader = (props: CountersHeaderProps) => {
                     <OrangeParagrapg> {props.selectedItems} selected </OrangeParagrapg>
                 </>
             }
-            <Button look='transparent'>
+            <Button look='transparent' onClick={props.refresh}>
                 <img src={Refresh} alt="" />
             </Button>
         </CounterHeaderBox>
