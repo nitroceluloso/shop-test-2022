@@ -16,6 +16,7 @@
     "jest": "^28.1.1",
     "jest-environment-jsdom": "^28.1.1",
     "jest-svg-transformer": "^1.0.0",
+    "json-server": "^0.17.0",
     "prettier": "^2.7.0",
     "style-loader": "^3.3.1",
     "ts-jest": "^28.0.5",
@@ -29,12 +30,14 @@
     "start": "webpack",
     "dev": "webpack serve",
     "test": "jest",
-    "pret": "prettier --write './src/**/*.tsx'"
+    "pret": "prettier --write './src/**/*.tsx'",
+    "server:mock": "json-server -d 1000 --routes ./mocks/routes.json ./mocks/counters.json"
   },
   "dependencies": {
     "html-webpack-plugin": "^5.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-query": "^3.39.1",
     "styled-components": "^5.3.5"
   }
 }

@@ -1,0 +1,25 @@
+{
+  "counter": [
+    {
+      "id": 1,
+      "name": "Cup of coffe",
+      "count": 5
+    },
+    {
+      "id": 2,
+      "name": "Records played",
+      "count": 10
+    },
+    {
+      "id": 3,
+      "name": "Number of times I’ve forgotten my mother’s name because I was high on Frugelés.",
+      "count": 10
+    },
+    {
+      "id": 4,
+      "name": "Apples eaten",
+      "count": 0,
+      "type": "dec"
+    }
+  ]
+}
