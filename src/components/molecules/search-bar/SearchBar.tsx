@@ -24,8 +24,8 @@ export const SearchBar = (props: SearchBarProps) => {
     }
 
     return(
-        <StyledWrapper ref={ref}>
-            <Input placeholder='Search counters' value=''look='search' onFocus={focus} onChange={onChangeHandler} />
+        <StyledWrapper data-testid="search-bar" ref={ref}>
+            <Input placeholder='Search counters' value='' look='search' onFocus={focus} onChange={onChangeHandler} />
             {
                 isOnFocus &&
                 <Button look='secundary' onClick={blur}>Cancel</Button>
