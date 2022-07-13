@@ -6,7 +6,7 @@ export const SearchBox = styled.div`
 
 type CounterBoxPropx = {
     transparent?: boolean;
-    loading: boolean;
+    $loading?: boolean;
 }
 
 const CounterBoxEmpty = css`
@@ -18,5 +18,5 @@ const CounterBoxEmpty = css`
 
 export const CountersBox = styled.div<CounterBoxPropx>`
     opacity: ${props => props.transparent ? '0.2' : 1};
-    ${props => props.loading ? CounterBoxEmpty : '' };
+    ${props => props.$loading ? CounterBoxEmpty : ''};
 `;

@@ -47,7 +47,7 @@ export const Counters = () => {
             <SearchBox>
                 <SearchBar onChange={setFilterText}/>
             </SearchBox>
-            <CountersBox loading={isLoading}>
+            <CountersBox $loading={isLoading}>
 
                 {
                     isLoading &&
