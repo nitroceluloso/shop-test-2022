@@ -29,6 +29,25 @@ describe('Searchbar [molecule]: ', () => {
         expect(btn).toBeDefined();
     });
 
+    test('should hide button on focus-out', async () => {
+        const inputId = 'input';
+        const cancelBtn = 'Cancel';
+        const props = {
+            onChange: () => {}
+        }
+        render(<SearchBar {...props} />);
+        const inputElement = screen.getByTestId(inputId);
+        act(() => {
+            inputElement.focus();
+        });
+        const btn = screen.getByText(cancelBtn);
+        expect(btn).toBeDefined();
+
+        fireEvent.click(btn);
+        const removedBtn = screen.queryByText(cancelBtn)
+        expect(removedBtn).toBeNull();
+    });
+
     test('should trigger onChange', () => {
         const inputId = 'input';
         const props = {
