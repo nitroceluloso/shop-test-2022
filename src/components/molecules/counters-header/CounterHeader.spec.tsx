@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import CounterHeader from "./";
+import CounterHeader from ".";
 
 const counterHeaderId = 'counter-header-box';
 const refreshIcon = 'refresh-icon';
