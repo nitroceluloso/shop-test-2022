@@ -6,15 +6,24 @@ import ButtonBar from '@Components/molecules/button-bar';
 import CounterList from "@Components/molecules/counter-list";
 import { getUpdateCounterFn, useGetCounters } from '../../network/counters/useCounters';
 import Loading from "@Assets/svg/loading.svg";
+import { queryClient } from '../../contexts/network/NetworkProvider';
+import { countersQueryKeys } from '../../network/counters/counters.config';
+import { Counter } from 'src/network/counters/counters.model';
 
 export const Counters = () => {
     const [filterText, setFilterText] = useState<string>('');
     const [itemAdition, setItemAdition] = useState(0);
     const [counterListSelected, setCounterListSelected] = useState<number[]>([]);
     const showButtons = counterListSelected.length ? true : false;
-    const { data, isFetching, isLoading, refetch } = useGetCounters();
+    const { data: counterListRaw, isFetching, isLoading, refetch } = useGetCounters();
     const [counterList, setCounterList] = useState([]);
-    const { mutate } = getUpdateCounterFn();
+    const updateCounterMutation = getUpdateCounterFn({
+        onSuccess: (murationData: Counter) => {
+            queryClient.setQueryData(countersQueryKeys.getCounters,
+                (counterList: Counter[]) =>
+                    counterList.map(counter => counter.id === murationData.id ? murationData : counter));
+        }
+    });
 
     const updateSelectedCounter = (id: number) => {
         if(counterListSelected.includes(id)) {
@@ -39,8 +48,8 @@ export const Counters = () => {
 
     //set list on state after fetch
     useEffect(() => {
-        if (!isFetching) setCounterList(data);;
-    }, [isFetching]);
+        if (!isFetching) setCounterList(counterListRaw);
+    }, [isFetching, counterListRaw]);
 
     return(
         <>
@@ -62,6 +71,7 @@ export const Counters = () => {
                         itemAddition={itemAdition}
                         itemCount={counterList.length}
                         selectedItems={counterListSelected.length}
+                        isRefreshing={isFetching}
                         refresh={refetch}
                     />
                 }
@@ -72,8 +82,8 @@ export const Counters = () => {
                         counterList={counterList}
                         selectedIds={counterListSelected}
                         onSelect={updateSelectedCounter}
-                        decrement={mutate}
-                        increment={mutate}
+                        decrement={updateCounterMutation.mutate}
+                        increment={updateCounterMutation.mutate}
                     />
                 }
             </CountersBox>

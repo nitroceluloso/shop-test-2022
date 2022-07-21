@@ -12,13 +12,14 @@ export type ButtonType =
 export type ButtonProps = {
 	look: ButtonType;
 	children?: string | JSX.Element,
+	disabled?: boolean;
 	onClick?: () => void;
 };
 
 export const Button = (props: ButtonProps) => {
 	const StyledButton = getButtonType(props.look);
 	return (
-		<StyledButton type="button" onClick={props.onClick}>
+		<StyledButton type="button" onClick={props.onClick} disabled={props.disabled}>
 			{props.children}
 		</StyledButton>
 	);

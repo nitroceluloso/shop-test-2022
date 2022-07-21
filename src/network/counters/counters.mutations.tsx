@@ -6,7 +6,7 @@ export const addCounter = (data: CounterForm) => {
     return postCall(counterBaseUrl, data);
 };
 
-export const updateCounter = (data: UpdateCounterData) => {
+export const updateCounter = async (data: UpdateCounterData) => {
     const url = counterBaseUrl + '/' + data.type + '/' + data.id;
     return patchCall(url, data);
 }

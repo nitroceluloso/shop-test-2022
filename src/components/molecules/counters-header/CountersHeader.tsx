@@ -8,6 +8,7 @@ type CountersHeaderProps = {
     itemAddition: number;
     selectedItems: number;
     refresh: () => void;
+    isRefreshing?: boolean;
 }
 
 export const CountersHeader = (props: CountersHeaderProps) => (
@@ -24,8 +25,11 @@ export const CountersHeader = (props: CountersHeaderProps) => (
                 <OrangeParagrapg> {props.selectedItems} selected </OrangeParagrapg>
             </>
         }
-        <Button look='transparent' onClick={props.refresh}>
+        <Button look='transparent' disabled={props.isRefreshing} onClick={props.refresh}>
             <img src={Refresh} alt="" data-testid="refresh-icon" />
         </Button>
+        {
+            props.isRefreshing && <span>Refreshing...</span>
+        }
     </CounterHeaderBox>
 )

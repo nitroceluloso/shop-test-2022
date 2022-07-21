@@ -8,44 +8,48 @@ export const getCall = async (url: string) => {
     return resp.json();
 }
 
-export const postCall = (url: string, data: any) => {
+export const postCall = async (url: string, data: any) => {
     const body = JSON.stringify(data);
     const requestOptions = {
         method: 'POST',
         body,
         headers
     }
-    return fetch(url, requestOptions);
+    const resp = await fetch(url, requestOptions);
+    return resp.json();
 }
 
-export const putCall = (url: string, data: any) => {
+export const putCall = async (url: string, data: any) => {
     const body = JSON.stringify(data);
     const requestOptions = {
         method: 'PUT',
         body,
         headers
     }
-    return fetch(url, requestOptions);
+    const resp =  await fetch(url, requestOptions);
+    return resp.json();
 }
 
-export const patchCall = (url: string, data: any) => {
+export const patchCall = async(url: string, data: any) => {
     const body = JSON.stringify(data);
     const requestOptions = {
         method: 'PATCH',
         body,
         headers
     }
-    return fetch(url, requestOptions);
+    const resp = await fetch(url, requestOptions);
+    return resp.json();
 }
 
-export const deleteCall = (url: string, data: any) => {
+export const deleteCall = async (url: string, data: any) => {
     const body = JSON.stringify(data);
     const requestOptions = {
         method: 'DELETE',
         body,
         headers
     }
-    return fetch(url, requestOptions);
+    const resp = await fetch(url, requestOptions);
+    return resp.json();
 }
 
 export const setPrefixUrl = (resource: string) => `http://localhost:3000/api/v1/${resource}`

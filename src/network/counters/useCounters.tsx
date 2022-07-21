@@ -10,6 +10,6 @@ export const useGetCounters = () =>
 
 export const getAddCounterFn = () => useMutation(addCounter);
 
-export const getUpdateCounterFn = () => useMutation(updateCounter);
+export const getUpdateCounterFn = (options?: any) => useMutation(updateCounter, options);
 
 export const getDeleteCounterFn = () => useMutation(deleteCounter);
