@@ -15,12 +15,12 @@ export const ButtonBar = (props: ButtonBarProps) => {
             <Separation/>
             <ButtonContainer>
                 <Button look='action' onClick={() => {}}>
-                    <img src={Plus} alt="" style={{height: '21px'}}/>
+                    <img src={Plus} alt="" style={{height: '21px'}} data-testid="add-action-img"/>
                 </Button>
 
                 {
                     props.showOptions &&
-                    <OptionButtonBox>
+                    <OptionButtonBox data-testid="options-btn">
                         <Button look='option' onClick={() => {}}>
                             <img src={Trash} alt="" style={{height: '21px'}}/>
                         </Button>
